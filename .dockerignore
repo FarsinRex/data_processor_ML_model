@@ -1,0 +1,40 @@
+```
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database files
+*.db
+*.sqlite
+
+# Model files (we'll handle these separately)
+*.pkl
+
+# Dashboard (separate deployment)
+dashboard/
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
+
+# Environment variables
+.env.local

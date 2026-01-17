@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pipeline Dashboard</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div id="root"></div>
+    
+    <!-- Load components -->
+    <script type="text/babel" src="api.js"></script>
+    <script type="text/babel" src="StatsCard.jsx">
+    </script><script type="text/babel" src="BatchSizeChart.jsx"></script>
+    <script type="text/babel" src="CostChart.jsx"></script>
+    <script type="text/babel" src="App.jsx"></script>
+</body>
+</html>

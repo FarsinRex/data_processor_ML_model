@@ -1,0 +1,3 @@
+
+
+Event Generator → FastAPI → PostgreSQL → Batch Processor → Cost Metrics
