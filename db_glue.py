@@ -8,6 +8,7 @@ class Database:
     """Manages PostgreSQL connections"""
     
     def __init__(self):
+        self.database_url = os.getenv('DB_HOST')
         # For local development - later we'll use environment variables
         self.config = {
             'host': os.getenv('DB_HOST', 'localhost'),
@@ -21,7 +22,7 @@ class Database:
     @contextmanager
     def get_connection(self):
         """Context manager for database connection"""
-        conn = psycopg2.connect(**self.config)
+        conn = psycopg2.connect(self.database_url)
         try:
             yield conn
             conn.commit()
