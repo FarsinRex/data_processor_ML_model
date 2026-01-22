@@ -25,7 +25,7 @@ class Database:
     @contextmanager
     def get_connection(self):
         """Context manager for database connection"""
-        conn = psycopg2.connect(**self.config)
+        conn = psycopg2.connect(self.database_url)
         try:
             yield conn
             conn.commit()
