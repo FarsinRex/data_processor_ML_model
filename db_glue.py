@@ -6,23 +6,26 @@ import os
 
 class Database:
     """Manages PostgreSQL connections"""
-    
     def __init__(self):
-        self.database_url = os.getenv('DB_HOST')
-        # For local development - later we'll use environment variables
-        self.config = {
-            'host': os.getenv('DB_HOST', 'localhost'),
-            'database': os.getenv('DB_NAME', 'pipeline_db'),
-            'user': os.getenv('DB_USER', 'postgres'),
-            'password': os.getenv('DB_PASSWORD', 'Farsin'),
-            'port': int(os.getenv('DB_PORT', 5432))
-        }
-        print(f"Database config: {self.config['host']}:{self.config['port']}/{self.config['database']}")
+        #railway automatically provides Database URL in production
+        self.database_url = os.getenv('DATABASE_URL')
+    
+        if not self.database_url:
+        # Fallback for local development
+            host = os.getenv('DB_HOST', 'localhost')
+            name = os.getenv('DB_NAME', 'pipeline_db')
+            user = os.getenv('DB_USER', 'postgres')
+            password = os.getenv('DB_PASSWORD', 'postgres')
+            port = os.getenv('DB_PORT', '5432')
+            self.database_url = f"postgresql://{user}:{password}@{host}:{port}/{name}"
+    
+        print(f"   Database connected")
+    
     
     @contextmanager
     def get_connection(self):
         """Context manager for database connection"""
-        conn = psycopg2.connect(self.database_url)
+        conn = psycopg2.connect(**self.config)
         try:
             yield conn
             conn.commit()
