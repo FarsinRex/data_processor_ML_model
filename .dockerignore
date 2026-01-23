@@ -23,9 +23,6 @@ Thumbs.db
 *.db
 *.sqlite
 
-# Model files (we'll handle these separately)
-*.pkl
-
 # Dashboard (separate deployment)
 dashboard/
 
