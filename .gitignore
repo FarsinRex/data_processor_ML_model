@@ -1,5 +1,4 @@
 echo __pycache__/ >> .gitignore
 echo *.pyc >> .gitignore
-echo *.pkl >> .gitignore
 echo .env >> .gitignore
 echo venv/ >> .gitignore
